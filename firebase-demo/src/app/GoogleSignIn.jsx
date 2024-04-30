@@ -7,8 +7,16 @@ import { signInWithPopup } from "firebase/auth";
 export default function GoogleSignIn() {
   const handleGoogleSignIn = async () => {
     try {
-      const result = await signInWithPopup (auth, provider);
+      const result = await signInWithPopup(auth, provider);
       console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
     } catch (error) {
       console.log(error);
     }
